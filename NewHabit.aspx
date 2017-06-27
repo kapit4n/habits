@@ -4,11 +4,11 @@
     <h2>New Habit</h2>
   <div class="form-group">
     <label for="habitName">Name:</label>
-    <input type="text" class="form-control" id="habitName" placeholder="Habit Name"/>
+    <asp:TextBox runat="server" CssClass="form-control" ID="habitName" placeholder="Habit Name"></asp:TextBox>
   </div>
   <div class="form-group">
     <label for="description">Description:</label>
-    <textarea class="form-control" placeholder="Habit description"></textarea>
+    <asp:TextBox Rows="5" runat="server" CssClass="form-control" ID="description" placeholder="Habit description"></asp:TextBox>
   </div>
   <asp:Button id="saveHabit" CssClass="btn btn-default" runat="server" Text="Save" OnClick="saveHabit_Click" />
 </asp:Content>
