@@ -7,19 +7,19 @@ using System.Web.UI.WebControls;
 
 public partial class NewHabit : System.Web.UI.Page
 {
-  HabitModelContext habitContext;
+  HabitModelContext context;
+  protected Habit newHabit = new Habit();
   protected void Page_Load(object sender, EventArgs e)
   {
-    habitContext = new HabitModelContext();
+    context = new HabitModelContext();
     
   }
 
   protected void saveHabit_Click(object sender, EventArgs e)
   {
-    Habit hb = new Habit();
-    hb.name = habitName.Text;
-    hb.description = description.Text;
-    habitContext.Habits.Add(hb);
-    habitContext.SaveChanges();
+    newHabit.name = habitName.Text;
+    newHabit.description = description.Text;
+    context.Habits.Add(newHabit);
+    context.SaveChanges();
   }
 }
