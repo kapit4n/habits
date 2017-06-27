@@ -7,10 +7,10 @@ using System.Web.UI.WebControls;
 
 public partial class NewHabit : System.Web.UI.Page
 {
-  MSSQLLocalDBEntities1 ss;
+  HabitModelContext habitContext;
   protected void Page_Load(object sender, EventArgs e)
   {
-    ss = new MSSQLLocalDBEntities1();
+    habitContext = new HabitModelContext();
     
   }
 
@@ -19,7 +19,7 @@ public partial class NewHabit : System.Web.UI.Page
     Habit hb = new Habit();
     hb.name = habitName.Text;
     hb.description = description.Text;
-    ss.Habits.Add(hb);
-    ss.SaveChanges();
+    habitContext.Habits.Add(hb);
+    habitContext.SaveChanges();
   }
 }

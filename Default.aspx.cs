@@ -11,4 +11,9 @@ public partial class _Default : Page
     {
 
     }
+
+  protected void btnRandom_Click(object sender, EventArgs e)
+  {
+    Server.Transfer("NewHabit.aspx", true);
+  }
 }
