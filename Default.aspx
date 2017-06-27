@@ -7,11 +7,10 @@
         <span aria-hidden="true" class="glyphicon glyphicon-plus"></span></asp:LinkButton>
         <p class="lead">Register all the habits that you usually do or you wanna develop them.</p>
     </div>
-
     <div class="row">
       <% for (int i = 0; i < habits.Count; i++) {
             %>
-      <div class="col-md-4">
+        <div class="col-md-4">
             <h2><% Response.Write(habits[i].name); %></h2>
             <img  width="100" height="100" src="<% Response.Write(habits[i].image); %>" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail">
             <p>
@@ -24,6 +23,5 @@
       <%
           }
        %>
-
     </div>
 </asp:Content>
