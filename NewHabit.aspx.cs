@@ -12,13 +12,10 @@ public partial class NewHabit : System.Web.UI.Page
   protected void Page_Load(object sender, EventArgs e)
   {
     context = new HabitModelContext();
-    
   }
 
   protected void saveHabit_Click(object sender, EventArgs e)
   {
-    newHabit.name = habitName.Text;
-    newHabit.description = description.Text;
     context.Habits.Add(newHabit);
     context.SaveChanges();
   }
