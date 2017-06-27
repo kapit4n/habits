@@ -11,4 +11,5 @@
     <asp:TextBox Rows="5" runat="server" CssClass="form-control" ID="description" placeholder="Habit description" Text='<%#this.newHabit.description%>'></asp:TextBox>
   </div>
   <asp:Button id="saveHabit" CssClass="btn btn-default" runat="server" Text="Save" OnClick="saveHabit_Click" />
+  <asp:Button id="cancelHabit" CssClass="btn btn-default" runat="server" Text="Cancel" OnClick="cancelHabit_Click" />
 </asp:Content>

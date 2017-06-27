@@ -22,4 +22,9 @@ public partial class NewHabit : System.Web.UI.Page
     context.Habits.Add(newHabit);
     context.SaveChanges();
   }
+
+  protected void cancelHabit_Click(object sender, EventArgs e)
+  {
+
+  }
 }

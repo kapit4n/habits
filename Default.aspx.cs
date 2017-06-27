@@ -7,10 +7,14 @@ using System.Web.UI.WebControls;
 
 public partial class _Default : Page
 {
-    protected void Page_Load(object sender, EventArgs e)
-    {
+  HabitModelContext context;
+  protected List<Habit> habits;
 
-    }
+  protected void Page_Load(object sender, EventArgs e)
+  {
+    context = new HabitModelContext();
+    habits =  context.Habits.ToList<Habit>();
+  }
 
   protected void btnRandom_Click(object sender, EventArgs e)
   {
