@@ -18,7 +18,7 @@
                 <% Response.Write(habits[i].description); %>
             </p>
             <p>
-                <a class="btn btn-default" href="HabitShow.aspx">Learn more &raquo;</a>
+                <a class="btn btn-default" href="HabitShow.aspx?Id=<% Response.Write(habits[i].Id); %>">Show &raquo;</a>
             </p>
         </div>
       <%
