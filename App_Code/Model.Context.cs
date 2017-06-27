@@ -24,4 +24,5 @@ public partial class HabitModelContext : DbContext
     }
 
     public virtual DbSet<Habit> Habits { get; set; }
+    public virtual DbSet<Comment> Comments { get; set; }
 }
