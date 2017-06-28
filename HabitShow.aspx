@@ -6,5 +6,5 @@
     <dd><img src="<% Response.Write(habit.image); %>" width="200"/></dd>
     <dd><% Response.Write(habit.description); %></dd>
   </dl>
-  <asp:Button id="editHabit" CssClass="btn btn-default" runat="server" Text="Edit"/>
+  <asp:Button id="editHabit" CssClass="btn btn-default" runat="server" Text="Edit" OnClick="editHabit_Click"/>
 </asp:Content>
