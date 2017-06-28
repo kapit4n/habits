@@ -8,16 +8,25 @@ using System.Web.UI.WebControls;
 public partial class NewHabit : System.Web.UI.Page
 {
   HabitModelContext context;
-  protected Habit newHabit = new Habit();
   protected void Page_Load(object sender, EventArgs e)
   {
     context = new HabitModelContext();
+    if (!Page.IsPostBack)
+    {
+      this.DataBind();
+    }
   }
 
   protected void saveHabit_Click(object sender, EventArgs e)
   {
+    Habit newHabit = new Habit();
+    newHabit.name = habitName.Text;
+    newHabit.image= habitImage.Text;
+    newHabit.description = description.Text;
+
     context.Habits.Add(newHabit);
     context.SaveChanges();
+    Server.Transfer("HabitShow.aspx?Id=" + newHabit.Id, true);
   }
 
   protected void cancelHabit_Click(object sender, EventArgs e)
