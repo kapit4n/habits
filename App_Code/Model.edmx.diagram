@@ -4,9 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="417eae70ca08477fb7e0cb3ec1a8c743" Name="Diagram1">
-        <EntityTypeShape EntityType="MSSQLLocalDBModel.Habit" Width="1.5" PointX="3.625" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MSSQLLocalDBModel.Comment" Width="1.5" PointX="0.75" PointY="0.75" />
+      <Diagram DiagramId="e9747788a7e24c3386f4a756ae894296" Name="Diagram1">
+        <EntityTypeShape EntityType="HabitsModel.Habit" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

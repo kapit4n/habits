@@ -10,17 +10,10 @@
 using System;
 using System.Collections.Generic;
 
-public partial class Comment
-{
-    public int Id { get; set; }
-    public string Comment1 { get; set; }
-    public string createdAt { get; set; }
-}
-
 public partial class Habit
 {
     public int Id { get; set; }
-    public string name { get; set; }
-    public string description { get; set; }
-    public string image { get; set; }
+    public string Name { get; set; }
+    public string Image { get; set; }
+    public string Description { get; set; }
 }

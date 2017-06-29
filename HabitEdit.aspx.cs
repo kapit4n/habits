@@ -7,31 +7,35 @@ using System.Web.UI.WebControls;
 
 public partial class HabitEdit : System.Web.UI.Page
 {
-  HabitModelContext context;
+  MSSQLLocalDBEntities context;
   Habit habit = new Habit();
 
   protected void Page_Load(object sender, EventArgs e)
   {
-    context = new HabitModelContext();
+    context = new MSSQLLocalDBEntities();
     string Id = Request.QueryString["Id"];
-    habit = context.Habits.Where(p => p.Id.ToString() == Id).First();
-    habitName.Text = habit.name;
-    habitImage.Text = habit.image;
-    description.Text = habit.description;
+    if (!IsPostBack)
+    {
+      habit = context.Habits.Where(p => p.Id.ToString() == Id).First();
+      habitName.Text = habit.Name;
+      habitImage.Text = habit.Image;
+      description.Text = habit.Description;
+    }
   }
 
   protected void saveHabit_Click(object sender, EventArgs e)
   {
-    habit.name = habitName.Text;
-    habit.image = habitImage.Text;
-    habit.description = description.Text;
-    context.Habits.Add(habit);
-    context.SaveChanges(); Server.Transfer("HabitShow.aspx?Id=" + habit.Id, true);
+    string Id = Request.QueryString["Id"];
+    habit = context.Habits.Where(p => p.Id.ToString() == Id).First();
+    habit.Name = habitName.Text;
+    habit.Image = habitImage.Text;
+    habit.Description = description.Text;
+    context.SaveChanges();
+    Response.Redirect("HabitShow.aspx?Id=" + habit.Id);
   }
 
   protected void cancelHabit_Click(object sender, EventArgs e)
   {
-    
-    Server.Transfer("Default.aspx", true);
+    Response.Redirect("Default.aspx");
   }
 }

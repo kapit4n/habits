@@ -11,10 +11,10 @@ using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 
-public partial class HabitModelContext : DbContext
+public partial class MSSQLLocalDBEntities : DbContext
 {
-    public HabitModelContext()
-        : base("name=HabitModelContext")
+    public MSSQLLocalDBEntities()
+        : base("name=MSSQLLocalDBEntities")
     {
     }
 
@@ -24,5 +24,4 @@ public partial class HabitModelContext : DbContext
     }
 
     public virtual DbSet<Habit> Habits { get; set; }
-    public virtual DbSet<Comment> Comments { get; set; }
 }

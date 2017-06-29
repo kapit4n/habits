@@ -7,10 +7,10 @@ using System.Web.UI.WebControls;
 
 public partial class HabitNew : System.Web.UI.Page
 {
-  HabitModelContext context;
+  MSSQLLocalDBEntities context;
   protected void Page_Load(object sender, EventArgs e)
   {
-    context = new HabitModelContext();
+    context = new MSSQLLocalDBEntities();
     if (!Page.IsPostBack)
     {
       this.DataBind();
@@ -20,17 +20,18 @@ public partial class HabitNew : System.Web.UI.Page
   protected void saveHabit_Click(object sender, EventArgs e)
   {
     Habit newHabit = new Habit();
-    newHabit.name = habitName.Text;
-    newHabit.image= habitImage.Text;
-    newHabit.description = description.Text;
+    newHabit.Name = habitName.Text;
+    newHabit.Image= habitImage.Text;
+    newHabit.Description = description.Text;
 
     context.Habits.Add(newHabit);
     context.SaveChanges();
-    Server.Transfer("HabitShow.aspx?Id=" + newHabit.Id, true);
+    Response.Redirect("HabitShow.aspx?Id=" + newHabit.Id);
   }
 
   protected void cancelHabit_Click(object sender, EventArgs e)
   {
     Server.Transfer("Default.aspx", true);
+    Response.Redirect("Default.aspx");
   }
 }

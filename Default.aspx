@@ -11,10 +11,10 @@
       <% for (int i = 0; i < habits.Count; i++) {
             %>
         <div class="col-md-4">
-            <h2><% Response.Write(habits[i].name); %></h2>
-            <img  width="100" height="100" src="<% Response.Write(habits[i].image); %>" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail">
+            <h2><% Response.Write(habits[i].Name); %></h2>
+            <img  width="100" height="100" src="<% Response.Write(habits[i].Image); %>" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail">
             <p>
-                <% Response.Write(habits[i].description); %>
+                <% Response.Write(habits[i].Description); %>
             </p>
             <p>
                 <a class="btn btn-default" href="HabitShow.aspx?Id=<% Response.Write(habits[i].Id); %>">Show &raquo;</a>
