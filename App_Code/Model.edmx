@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HabitsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HabitsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Habits">
           <Key>
             <PropertyRef Name="Id" />
@@ -13,12 +13,12 @@
           <Property Name="Name" Type="varchar(max)" Nullable="false" />
           <Property Name="Image" Type="varchar(max)" />
           <Property Name="Description" Type="text" />
+          <Property Name="Done" Type="bit" Nullable="false" />
         </EntityType>
         <EntityContainer Name="HabitsModelStoreContainer">
           <EntitySet Name="Habits" EntityType="Self.Habits" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HabitsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -30,6 +30,7 @@
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Done" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityContainer Name="MSSQLLocalDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Habits" EntityType="Self.Habit" />
@@ -43,6 +44,7 @@
           <EntitySetMapping Name="Habits">
             <EntityTypeMapping TypeName="HabitsModel.Habit">
               <MappingFragment StoreEntitySet="Habits">
+                <ScalarProperty Name="Done" ColumnName="Done" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
