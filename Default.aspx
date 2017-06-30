@@ -8,16 +8,19 @@
         <p class="lead">Register all the habits that you usually do or you wanna develop them.</p>
     </div>
     <div class="row">
-      <% for (int i = 0; i < habits.Count; i++) {
+      <% for (int index = 0; index < habits.Count; index++) {
+          string Id = habits[index].Id.ToString();
             %>
         <div class="col-md-4">
-            <h2><% Response.Write(habits[i].Name); %></h2>
-            <img  width="100" height="100" src="<% Response.Write(habits[i].Image); %>" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail">
+            <h2><% Response.Write(habits[index].Name); %></h2>
+            <img  width="100" height="100" src="<% Response.Write(habits[index].Image); %>" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail">
             <p>
-                <% Response.Write(habits[i].Description); %>
+                <% Response.Write(habits[index].Description); %>
             </p>
             <p>
-                <a class="btn btn-default" href="HabitShow.aspx?Id=<% Response.Write(habits[i].Id); %>">Show &raquo;</a>
+                <a class="btn btn-default" href="HabitShow.aspx?Id=<% Response.Write(habits[index].Id); %>">Show</a>
+                <a class="btn btn-default" href="HabitEdit.aspx?Id=<% Response.Write(habits[index].Id); %>">Edit</a>
+                <a class="btn btn-default" href="Default.aspx?Id=<% Response.Write(habits[index].Id); %>">DONE</a>
             </p>
         </div>
       <%
