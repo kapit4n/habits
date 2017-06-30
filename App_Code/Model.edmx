@@ -14,6 +14,7 @@
           <Property Name="Image" Type="varchar(max)" />
           <Property Name="Description" Type="text" />
           <Property Name="Done" Type="bit" Nullable="false" />
+          <Property Name="DoneDate" Type="datetime" />
         </EntityType>
         <EntityContainer Name="HabitsModelStoreContainer">
           <EntitySet Name="Habits" EntityType="Self.Habits" Schema="dbo" store:Type="Tables" />
@@ -31,6 +32,7 @@
           <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Done" Type="Boolean" Nullable="false" />
+          <Property Name="DoneDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityContainer Name="MSSQLLocalDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Habits" EntityType="Self.Habit" />
@@ -44,6 +46,7 @@
           <EntitySetMapping Name="Habits">
             <EntityTypeMapping TypeName="HabitsModel.Habit">
               <MappingFragment StoreEntitySet="Habits">
+                <ScalarProperty Name="DoneDate" ColumnName="DoneDate" />
                 <ScalarProperty Name="Done" ColumnName="Done" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

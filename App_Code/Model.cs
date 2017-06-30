@@ -17,4 +17,5 @@ public partial class Habit
     public string Image { get; set; }
     public string Description { get; set; }
     public bool Done { get; set; }
+    public Nullable<System.DateTime> DoneDate { get; set; }
 }
