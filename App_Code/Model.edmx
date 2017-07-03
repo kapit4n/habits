@@ -15,6 +15,7 @@
           <Property Name="Description" Type="text" />
           <Property Name="Done" Type="bit" Nullable="false" />
           <Property Name="DoneDate" Type="datetime" />
+          <Property Name="HabitTime" Type="int" />
         </EntityType>
         <EntityContainer Name="HabitsModelStoreContainer">
           <EntitySet Name="Habits" EntityType="Self.Habits" Schema="dbo" store:Type="Tables" />
@@ -23,20 +24,21 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HabitsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MSSQLLocalDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Habits" EntityType="HabitsModel.Habit" />
+        </EntityContainer>
         <EntityType Name="Habit">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Done" Type="Boolean" Nullable="false" />
           <Property Name="DoneDate" Type="DateTime" Precision="3" />
+          <Property Name="HabitTime" Type="Int32" />
         </EntityType>
-        <EntityContainer Name="MSSQLLocalDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Habits" EntityType="Self.Habit" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -46,12 +48,13 @@
           <EntitySetMapping Name="Habits">
             <EntityTypeMapping TypeName="HabitsModel.Habit">
               <MappingFragment StoreEntitySet="Habits">
+                <ScalarProperty Name="HabitTime" ColumnName="HabitTime" />
                 <ScalarProperty Name="DoneDate" ColumnName="DoneDate" />
                 <ScalarProperty Name="Done" ColumnName="Done" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -15,7 +15,7 @@
             <h2><% Response.Write(habits[index].Name); %></h2>
             <img  width="100" height="100" src="<% Response.Write(habits[index].Image); %>" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail">
             <p>
-                <% Response.Write(habits[index].Description); %>
+                <% Response.Write(habits[index].Description); %><span class="badge"><% Response.Write(habits[index].getHabitTimeStr()); %></span>
             </p>
             <p>
                 <a class="btn btn-default" href="HabitShow.aspx?Id=<% Response.Write(habits[index].Id); %>">Show</a>

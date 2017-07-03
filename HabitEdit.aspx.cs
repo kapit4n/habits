@@ -19,6 +19,7 @@ public partial class HabitEdit : System.Web.UI.Page
       habit = context.Habits.Where(p => p.Id.ToString() == Id).First();
       habitName.Text = habit.Name;
       habitImage.Text = habit.Image;
+      habitTime.Text = habit.getHabitTimeStr();
       description.Text = habit.Description;
     }
   }
@@ -28,6 +29,7 @@ public partial class HabitEdit : System.Web.UI.Page
     string Id = Request.QueryString["Id"];
     habit = context.Habits.Where(p => p.Id.ToString() == Id).First();
     habit.Name = habitName.Text;
+    habit.HabitTime = (Int32.Parse(habitTime.Text.Split(':')[0])) * 60 + (Int32.Parse(habitTime.Text.Split(':')[1]));
     habit.Image = habitImage.Text;
     habit.Description = description.Text;
     context.SaveChanges();

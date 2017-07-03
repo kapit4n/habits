@@ -7,6 +7,10 @@
     <asp:TextBox runat="server" CssClass="form-control" ID="habitName" placeholder="Habit Name" Text=""></asp:TextBox>
   </div>
   <div class="form-group">
+    <label for="habitTime">Habit Time:</label>
+    <asp:TextBox runat="server" CssClass="form-control" ID="habitTime" placeholder="HH:MM" Text=""></asp:TextBox>
+  </div>
+  <div class="form-group">
     <label for="habitImage">Image:</label>
     <asp:TextBox runat="server" CssClass="form-control" ID="habitImage" placeholder="Habit Image Url" Text=""></asp:TextBox>
   </div>

@@ -3,6 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
   <h2><% Response.Write(habit.Name); %></h2>
   <dl class="dl-vertical">
+    <dd><% Response.Write(habit.getHabitTimeStr()); %></dd>
     <dd><img src="<% Response.Write(habit.Image); %>" width="200"/></dd>
     <dd><% Response.Write(habit.Description); %></dd>
   </dl>

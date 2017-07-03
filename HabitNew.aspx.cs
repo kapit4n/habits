@@ -23,7 +23,7 @@ public partial class HabitNew : System.Web.UI.Page
     newHabit.Name = habitName.Text;
     newHabit.Image= habitImage.Text;
     newHabit.Description = description.Text;
-
+    newHabit.HabitTime = (Int32.Parse(habitTime.Text.Split(':')[0])) * 60 + (Int32.Parse(habitTime.Text.Split(':')[1]));
     context.Habits.Add(newHabit);
     context.SaveChanges();
     Response.Redirect("HabitShow.aspx?Id=" + newHabit.Id);
