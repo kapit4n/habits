@@ -18,4 +18,9 @@
         <img  width="100" height="100" src="https://res.cloudinary.com/dpcbzfiye/image/upload/w_1620,c_fill,dpr_auto,f_auto,q_auto,fl_progressive/v1485881412/ok4bymxsnpdrauwldrlk.jpg" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail">
         <p>You will register the commitment of the habit</p>
     </article>
+    <article style="display: block; height: 150px;">
+      <a class="btn btn-primary" href="HabitList.aspx">Habit List <span class="badge">8</span></a>
+        <img  width="100" height="100" src="http://www.quickanddirtytips.com/sites/default/files/images/5937/Checklist.jpg" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail">
+        <p>You will register the commitment of the habit</p>
+    </article>
 </asp:Content>
