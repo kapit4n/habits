@@ -44,31 +44,31 @@ textarea {
     border-right: 1px solid #ddd;
 }
 
-    .nav-sidebar a {
-        color: #333;
-        -webkit-transition: all 0.08s linear;
-        -moz-transition: all 0.08s linear;
-        -o-transition: all 0.08s linear;
-        transition: all 0.08s linear;
-    }
+.nav-sidebar a {
+    color: #333;
+    -webkit-transition: all 0.08s linear;
+    -moz-transition: all 0.08s linear;
+    -o-transition: all 0.08s linear;
+    transition: all 0.08s linear;
+}
 
-    .nav-sidebar .active a {
-        cursor: default;
-        background-color: #34ca78;
-        color: #fff;
-    }
+.nav-sidebar .active a {
+    cursor: default;
+    background-color: #34ca78;
+    color: #fff;
+}
 
-        .nav-sidebar .active a:hover {
-            background-color: #37D980;
-        }
+.nav-sidebar .active a:hover {
+    background-color: #37D980;
+}
 
-    .nav-sidebar .text-overflow a,
-    .nav-sidebar .text-overflow .media-body {
-        white-space: nowrap;
-        overflow: hidden;
-        -o-text-overflow: ellipsis;
-        text-overflow: ellipsis;
-    }
+.nav-sidebar .text-overflow a,
+.nav-sidebar .text-overflow .media-body {
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
 
 .btn-blog {
     color: #ffffff;
@@ -100,3 +100,92 @@ h2 {
 article {
     display: block;
 }
+
+
+
+/* TIMELINE CSS */
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  position: relative;
+}
+
+.timeline {
+  padding: 40px 0px;
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 40px;
+}
+
+  .timeline:before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 65px;
+    width: 3px;
+    height: calc(100% - 80px);
+    background: #c0392b;
+  }
+
+  .timeline .column {
+    margin: 40px 40px 40px 120px;
+  }
+
+    .timeline .column .title h1 {
+      font-size: 65px;
+      color: rgba(0,0,0,0.2);
+      font-family: serif;
+      letter-spacing: 3px;
+    }
+
+      .timeline .column .title h1:before {
+        content: "";
+        position: absolute;
+        left: -62px;
+        top: 86px;
+        width: 10px;
+        height: 10px;
+        background: #fff;
+        border: 3px solid #c0392b;
+      }
+
+    .timeline .column .title h2 {
+      margin-top: -60px;
+      font-size: 33px;
+      color: black;
+      text-transform: uppercase;
+      font-family: "Lato", sans-serif;
+    }
+
+    .timeline .column .description p {
+      font-size: 13px;
+      line-height: 20px;
+      margin-left: 20px;
+      margin-top: 10px;
+      font-family: serif;
+    }
+
+    .timeline .column .description {
+      border-left: 1px solid #000;
+    }
+
+.main {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 80px;
+}
+
+  .main h1 {
+    font-size: 80px;
+    line-height: 60px;
+  }
+
+  .main p {
+    font-size: 13px;
+    line-height: 20px;
+    font-family: serif;
+    text-align: right;
+  }
