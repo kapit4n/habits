@@ -14,6 +14,10 @@ public partial class HabitEdit : System.Web.UI.Page
   {
     context = new MSSQLLocalDBEntities();
     string Id = Request.QueryString["Id"];
+    if (Id == null)
+    {
+      Response.Redirect("Default.aspx");
+    }
     if (!IsPostBack)
     {
       habit = context.Habits.Where(p => p.Id.ToString() == Id).First();

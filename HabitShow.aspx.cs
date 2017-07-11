@@ -13,6 +13,10 @@ public partial class HabitShow : System.Web.UI.Page
   {
     context = new MSSQLLocalDBEntities();
     string Id = Request.QueryString["Id"];
+    if (Id == null)
+    {
+      Response.Redirect("Default.aspx");
+    }
     habit = context.Habits.Where(p => p.Id.ToString() == Id).First();
   }
 
