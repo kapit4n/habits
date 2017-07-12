@@ -6,7 +6,7 @@ Habits is a web page where you can write all the habits that you have and see it
 * Commit a habit(DONE)
 * List of possible next habits(DONE)
 * Report of committed habits
-* Timeline of the habit
+* Timeline of the habit(PROGRESS)
 
 ## RUN
 * open with visual studio
