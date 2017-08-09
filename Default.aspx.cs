@@ -9,7 +9,8 @@ public partial class _Default : Page
 {
   MSSQLLocalDBEntities context;
   protected List<Habit> habits;
-  
+  protected List<Habit> doneHabits;
+
   protected void Page_Load(object sender, EventArgs e)
   {
     context = new MSSQLLocalDBEntities();
@@ -26,6 +27,7 @@ public partial class _Default : Page
     {
       DateTime nowx = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
       habits = context.Habits.ToList<Habit>().Where(p => p.DoneDate < nowx || !p.Done).OrderBy( h => h.HabitTime).ToList();
+      doneHabits = context.Habits.ToList<Habit>().Where(p => p.DoneDate > nowx && p.Done).OrderByDescending(h => h.DoneDate).ToList();
     }
   }
 

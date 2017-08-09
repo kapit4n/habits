@@ -3,9 +3,25 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>HABITS </h1><asp:LinkButton ID="btnRandom" runat="server" CssClass="btn btn-primary" OnClick="btnRandom_Click">
-        <span aria-hidden="true" class="glyphicon glyphicon-plus"></span></asp:LinkButton>
-        <p class="lead">Register all the habits that you usually do or you wanna develop them.</p>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h1>HABITS </h1><asp:LinkButton ID="btnRandom" runat="server" CssClass="btn btn-primary" OnClick="btnRandom_Click">
+            <span aria-hidden="true" class="glyphicon glyphicon-plus"></span></asp:LinkButton>
+            <p class="lead">Register all the habits that you usually do or you wanna develop them.</p>
+          </div>
+          <div class="col-md-6">
+            <ul class="list-group">
+              <% for (int index = 0; index < doneHabits.Count; index++)
+                { 
+              %>
+              <li class="list-group-item"><% Response.Write(doneHabits[index].Name); %> <span class="badge">At <% Response.Write(doneHabits[index].DoneDate); %></span></li>
+              <% }%>
+            </ul>
+          </div>
+        </div>
+        
+      </div>
     </div>
     <div class="row">
       <% for (int index = 0; index < habits.Count; index++) {
