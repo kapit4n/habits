@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Web;
 using System.Web.Routing;
-using Microsoft.AspNet.FriendlyUrls;
 using Microsoft.AspNet.FriendlyUrls.Resolvers;
 
 public partial class ViewSwitcher : System.Web.UI.UserControl
@@ -22,8 +21,8 @@ public partial class ViewSwitcher : System.Web.UI.UserControl
         AlternateView = isMobile ? "Desktop" : "Mobile";
 
         // Create switch URL from the route, e.g. ~/__FriendlyUrls_SwitchView/Mobile?ReturnUrl=/Page
-        var switchViewRouteName = "AspNet.FriendlyUrls.SwitchView";
-        var switchViewRoute = RouteTable.Routes[switchViewRouteName];
+      var switchViewRouteName = "AspNet.FriendlyUrls.SwitchView";
+      var switchViewRoute = RouteTable.Routes[switchViewRouteName];
         if (switchViewRoute == null)
         {
             // Friendly URLs is not enabled or the name of the switch view route is out of sync

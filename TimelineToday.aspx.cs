@@ -7,15 +7,15 @@ using System.Web.UI.WebControls;
 
 public partial class TimelineToday : System.Web.UI.Page
 {
-  MSSQLLocalDBEntities context;
-  protected List<Habit> habits;
+  public MSSQLLocalDBEntities Context1 { get; set; }
+
+  protected List<Habit> Habits { get; set; }
+
   protected void Page_Load(object sender, EventArgs e)
   {
-    context = new MSSQLLocalDBEntities();
-    if (!IsPostBack)
-    {
-      DateTime nowx = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
-      habits = context.Habits.ToList<Habit>().Where(p => p.DoneDate > nowx && p.Done).OrderByDescending(h => h.DoneDate).ToList();
-    }
+    Context1 = new MSSQLLocalDBEntities();
+    if (IsPostBack) return;
+    var nowx = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
+    Habits = Context1.Habits.ToList<Habit>().Where(p => p.DoneDate > nowx && p.Done).OrderByDescending(h => h.DoneDate).ToList();
   }
 }

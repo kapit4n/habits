@@ -7,17 +7,17 @@ using System.Web.UI.WebControls;
 
 public partial class HabitList : System.Web.UI.Page
 {
-  MSSQLLocalDBEntities context;
-  protected List<Habit> habits;
+  public MSSQLLocalDBEntities Context1 { get; private set; }
+  protected List<Habit> Habits1 { get; set; }
 
   protected void Page_Load(object sender, EventArgs e)
   {
-    context = new MSSQLLocalDBEntities();
-    string Id = Request.QueryString["Id"];
-    string action= Request.QueryString["action"];
-    if (Id != null && Id != "")
+    Context1 = new MSSQLLocalDBEntities();
+    var id = Request.QueryString["Id"];
+    var action= Request.QueryString["action"];
+    if (!string.IsNullOrEmpty(id))
     {
-      Habit habit = context.Habits.Where(p => p.Id.ToString() == Id).First();
+      var habit = Context1.Habits.First(p => p.Id.ToString() == id);
       if (action == "done")
       {
         habit.Done = true;
@@ -27,12 +27,12 @@ public partial class HabitList : System.Web.UI.Page
       {
         habit.Done = false;
       }
-      context.SaveChanges();
+      Context1.SaveChanges();
     }
 
     if (!IsPostBack)
     {
-      habits = context.Habits.ToList<Habit>().OrderBy(h => h.Name).ToList();
+      Habits1 = Context1.Habits.ToList<Habit>().OrderBy(h => h.Name).ToList();
     }
   }
 

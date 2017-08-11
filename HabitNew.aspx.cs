@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public partial class HabitNew : System.Web.UI.Page
 {
-  MSSQLLocalDBEntities context;
+  private MSSQLLocalDBEntities _context1;
   protected void Page_Load(object sender, EventArgs e)
   {
-    context = new MSSQLLocalDBEntities();
+    _context1 = new MSSQLLocalDBEntities();
     if (!Page.IsPostBack)
     {
       this.DataBind();
@@ -19,13 +15,15 @@ public partial class HabitNew : System.Web.UI.Page
 
   protected void saveHabit_Click(object sender, EventArgs e)
   {
-    Habit newHabit = new Habit();
-    newHabit.Name = habitName.Text;
-    newHabit.Image= habitImage.Text;
-    newHabit.Description = description.Text;
-    newHabit.HabitTime = (Int32.Parse(habitTime.Text.Split(':')[0])) * 60 + (Int32.Parse(habitTime.Text.Split(':')[1]));
-    context.Habits.Add(newHabit);
-    context.SaveChanges();
+    var newHabit = new Habit
+    {
+      Name = habitName.Text,
+      Image = habitImage.Text,
+      Description = description.Text,
+      HabitTime = (int.Parse(habitTime.Text.Split(':')[0])) * 60 + (int.Parse(habitTime.Text.Split(':')[1]))
+    };
+    _context1.Habits.Add(newHabit);
+    _context1.SaveChanges();
     Response.Redirect("HabitShow.aspx?Id=" + newHabit.Id);
   }
 

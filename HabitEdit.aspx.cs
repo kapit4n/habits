@@ -7,37 +7,35 @@ using System.Web.UI.WebControls;
 
 public partial class HabitEdit : System.Web.UI.Page
 {
-  MSSQLLocalDBEntities context;
-  Habit habit = new Habit();
+  public MSSQLLocalDBEntities Context1 { get; private set; }
+  public Habit Habit1 { get; private set; } = new Habit();
 
   protected void Page_Load(object sender, EventArgs e)
   {
-    context = new MSSQLLocalDBEntities();
-    string Id = Request.QueryString["Id"];
-    if (Id == null)
+    Context1 = new MSSQLLocalDBEntities();
+    var id = Request.QueryString["Id"];
+    if (id == null)
     {
       Response.Redirect("Default.aspx");
     }
-    if (!IsPostBack)
-    {
-      habit = context.Habits.Where(p => p.Id.ToString() == Id).First();
-      habitName.Text = habit.Name;
-      habitImage.Text = habit.Image;
-      habitTime.Text = habit.getHabitTimeStr();
-      description.Text = habit.Description;
-    }
+    if (IsPostBack) return;
+    Habit1 = Context1.Habits.First(p => p.Id.ToString() == id);
+    habitName.Text = Habit1.Name;
+    habitImage.Text = Habit1.Image;
+    habitTime.Text = Habit1.getHabitTimeStr();
+    description.Text = Habit1.Description;
   }
 
   protected void saveHabit_Click(object sender, EventArgs e)
   {
-    string Id = Request.QueryString["Id"];
-    habit = context.Habits.Where(p => p.Id.ToString() == Id).First();
-    habit.Name = habitName.Text;
-    habit.HabitTime = (Int32.Parse(habitTime.Text.Split(':')[0])) * 60 + (Int32.Parse(habitTime.Text.Split(':')[1]));
-    habit.Image = habitImage.Text;
-    habit.Description = description.Text;
-    context.SaveChanges();
-    Response.Redirect("HabitShow.aspx?Id=" + habit.Id);
+    var Id = Request.QueryString["Id"];
+    Habit1 = Context1.Habits.First(p => p.Id.ToString() == Id);
+    Habit1.Name = habitName.Text;
+    Habit1.HabitTime = (int.Parse(habitTime.Text.Split(':')[0])) * 60 + (int.Parse(habitTime.Text.Split(':')[1]));
+    Habit1.Image = habitImage.Text;
+    Habit1.Description = description.Text;
+    Context1.SaveChanges();
+    Response.Redirect("HabitShow.aspx?Id=" + Habit1.Id);
   }
 
   protected void cancelHabit_Click(object sender, EventArgs e)
