@@ -19,6 +19,12 @@ public partial class Habit
     public bool Done { get; set; }
     public Nullable<System.DateTime> DoneDate { get; set; }
     public Nullable<int> HabitTime { get; set; }
+
+  public string getHabitTimeStr()
+  {
+    if (HabitTime == null) return "00:00";
+    return (((int)(HabitTime / 60)).ToString("00")) + ":" + (((int)(HabitTime % 60)).ToString("00"));
+  }
 }
 
 public partial class HabitLog
