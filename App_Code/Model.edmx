@@ -5,6 +5,19 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="HabitsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MSSQLLocalDB.dbo.HabitLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="HabitLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HabitId" Type="int" />
+          <Property Name="DoneDate" Type="datetime" />
+          <Property Name="ChangeDescription" Type="text" />
+          <Property Name="OldValue" Type="text" />
+          <Property Name="NewValue" Type="text" />
+        </EntityType>
         <EntityType Name="Habits">
           <Key>
             <PropertyRef Name="Id" />
@@ -19,6 +32,16 @@
         </EntityType>
         <EntityContainer Name="HabitsModelStoreContainer">
           <EntitySet Name="Habits" EntityType="Self.Habits" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HabitLog" EntityType="Self.HabitLog" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [HabitLog].[Id] AS [Id], 
+    [HabitLog].[HabitId] AS [HabitId], 
+    [HabitLog].[DoneDate] AS [DoneDate], 
+    [HabitLog].[ChangeDescription] AS [ChangeDescription], 
+    [HabitLog].[OldValue] AS [OldValue], 
+    [HabitLog].[NewValue] AS [NewValue]
+    FROM [dbo].[HabitLog] AS [HabitLog]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -26,6 +49,7 @@
       <Schema Namespace="HabitsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="MSSQLLocalDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Habits" EntityType="HabitsModel.Habit" />
+          <EntitySet Name="HabitLogs" EntityType="HabitsModel.HabitLog" />
         </EntityContainer>
         <EntityType Name="Habit">
           <Key>
@@ -38,6 +62,17 @@
           <Property Name="Done" Type="Boolean" Nullable="false" />
           <Property Name="DoneDate" Type="DateTime" Precision="3" />
           <Property Name="HabitTime" Type="Int32" />
+        </EntityType>
+        <EntityType Name="HabitLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HabitId" Type="Int32" />
+          <Property Name="DoneDate" Type="DateTime" Precision="3" />
+          <Property Name="ChangeDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OldValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NewValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -54,6 +89,18 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HabitLogs">
+            <EntityTypeMapping TypeName="HabitsModel.HabitLog">
+              <MappingFragment StoreEntitySet="HabitLog">
+                <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+                <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+                <ScalarProperty Name="ChangeDescription" ColumnName="ChangeDescription" />
+                <ScalarProperty Name="DoneDate" ColumnName="DoneDate" />
+                <ScalarProperty Name="HabitId" ColumnName="HabitId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

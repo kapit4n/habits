@@ -24,4 +24,5 @@ public partial class MSSQLLocalDBEntities : DbContext
     }
 
     public virtual DbSet<Habit> Habits { get; set; }
+    public virtual DbSet<HabitLog> HabitLogs { get; set; }
 }
