@@ -7,22 +7,23 @@ using System.Web.UI.WebControls;
 
 public partial class HabitShow : System.Web.UI.Page
 {
-  MSSQLLocalDBEntities context;
-  protected Habit habit = new Habit();
+  protected MSSQLLocalDBEntities _context;
+  protected Habit Habit1 { get; set; } = new Habit();
+  protected List<HabitLog> _habitLogs;
   protected void Page_Load(object sender, EventArgs e)
   {
-    context = new MSSQLLocalDBEntities();
-    string Id = Request.QueryString["Id"];
-    if (Id == null)
+    _context = new MSSQLLocalDBEntities();
+    var id = Request.QueryString["Id"];
+    if (id == null)
     {
       Response.Redirect("Default.aspx");
     }
-    habit = context.Habits.Where(p => p.Id.ToString() == Id).First();
+    Habit1 = _context.Habits.First(p => p.Id.ToString() == id);
+    _habitLogs = _context.HabitLogs.Where(p => p.HabitId == Habit1.Id).ToList<HabitLog>();
   }
 
-  protected void editHabit_Click(object sender, EventArgs e)
+  protected void EditHabit_Click(object sender, EventArgs e)
   {
-    // Server.Transfer("HabitEdit.aspx?Id=" + Request.QueryString["Id"], true);
     Response.Redirect("HabitEdit.aspx?Id=" + Request.QueryString["Id"]);
   }
 }

@@ -12,10 +12,10 @@
           </div>
           <div class="col-md-6">
             <ul class="list-group">
-              <% for (int index = 0; index < _doneHabits.Count; index++)
+              <% for (var index = 0; index < DoneHabits.Count; index++)
                 { 
               %>
-              <li class="list-group-item"><% Response.Write(_doneHabits[index].Name); %> <span class="badge">At <% Response.Write(_doneHabits[index].DoneDate); %></span></li>
+              <li class="list-group-item"><% Response.Write(DoneHabits[index].Name); %> <span class="badge">At <% Response.Write(DoneHabits[index].DoneDate); %></span></li>
               <% }%>
             </ul>
           </div>
@@ -25,7 +25,7 @@
     </div>
     <div class="row">
       <% for (int index = 0; index < GetHabits().Count; index++) {
-                                         string Id = GetHabits()[index].Id.ToString();
+                                         var id = GetHabits()[index].Id.ToString();
             %>
         <div class="col-md-4">
             <h2><% Response.Write(GetHabits()[index].Name); %></h2>

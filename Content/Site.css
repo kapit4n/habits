@@ -189,3 +189,24 @@ article {
     font-family: serif;
     text-align: right;
   }
+
+/* comment*/
+.direct-chat-text {
+  background: skyblue none repeat scroll 0 0;
+  border: 1px dashed white;
+  border-radius: 5px;
+  color: #1f2121;
+  padding: 10px 0px 10px 15px;
+}
+
+.doted-border {
+  padding: 0;
+  background: transparent none repeat scroll 0 0 !important;
+  bottom: 0;
+  content: "";
+  margin: 0;
+  top: 0;
+  width: 2px;
+  display: inline;
+  z-index: -2;
+}
