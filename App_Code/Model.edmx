@@ -5,8 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="HabitsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'MSSQLLocalDB.dbo.HabitLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="HabitLog">
           <Key>
             <PropertyRef Name="Id" />
@@ -31,17 +29,8 @@ warning 6002: The table/view 'MSSQLLocalDB.dbo.HabitLog' does not have a primary
           <Property Name="HabitTime" Type="int" />
         </EntityType>
         <EntityContainer Name="HabitsModelStoreContainer">
+          <EntitySet Name="HabitLog" EntityType="Self.HabitLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Habits" EntityType="Self.Habits" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HabitLog" EntityType="Self.HabitLog" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [HabitLog].[Id] AS [Id], 
-    [HabitLog].[HabitId] AS [HabitId], 
-    [HabitLog].[DoneDate] AS [DoneDate], 
-    [HabitLog].[ChangeDescription] AS [ChangeDescription], 
-    [HabitLog].[OldValue] AS [OldValue], 
-    [HabitLog].[NewValue] AS [NewValue]
-    FROM [dbo].[HabitLog] AS [HabitLog]</DefiningQuery>
-          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->

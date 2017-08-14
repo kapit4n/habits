@@ -16,6 +16,7 @@ public partial class TimelineToday : System.Web.UI.Page
     Context1 = new MSSQLLocalDBEntities();
     if (IsPostBack) return;
     var nowx = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
-    Habits = Context1.Habits.ToList<Habit>().Where(p => p.DoneDate > nowx && p.Done).OrderByDescending(h => h.DoneDate).ToList();
+    Habits = Context1.Habits.ToList<Habit>().Where(p => p.DoneDate > nowx && p.Done).OrderByDescending(h => h.DoneDate)
+      .ToList();
   }
 }

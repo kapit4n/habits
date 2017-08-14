@@ -2,20 +2,20 @@
       
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="jumbotron">
-      <div class="container">
+    <div class="jumbotron" style="padding: 0;">
+      <div class="container" style="padding: 0;">
         <div class="row">
           <div class="col-md-6">
             <h1>HABITS </h1><asp:LinkButton ID="btnRandom" runat="server" CssClass="btn btn-primary" OnClick="btnRandom_Click">
             <span aria-hidden="true" class="glyphicon glyphicon-plus"></span></asp:LinkButton>
-            <p class="lead">Register all the habits that you usually do or you wanna develop them.</p>
+            <p class="lead">Register all the _habits that you usually do or you wanna develop them.</p>
           </div>
           <div class="col-md-6">
             <ul class="list-group">
-              <% for (int index = 0; index < doneHabits.Count; index++)
+              <% for (int index = 0; index < _doneHabits.Count; index++)
                 { 
               %>
-              <li class="list-group-item"><% Response.Write(doneHabits[index].Name); %> <span class="badge">At <% Response.Write(doneHabits[index].DoneDate); %></span></li>
+              <li class="list-group-item"><% Response.Write(_doneHabits[index].Name); %> <span class="badge">At <% Response.Write(_doneHabits[index].DoneDate); %></span></li>
               <% }%>
             </ul>
           </div>
@@ -24,19 +24,19 @@
       </div>
     </div>
     <div class="row">
-      <% for (int index = 0; index < habits.Count; index++) {
-          string Id = habits[index].Id.ToString();
+      <% for (int index = 0; index < GetHabits().Count; index++) {
+                                         string Id = GetHabits()[index].Id.ToString();
             %>
         <div class="col-md-4">
-            <h2><% Response.Write(habits[index].Name); %></h2>
-            <img  width="100" height="100" src="<% Response.Write(habits[index].Image); %>" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail">
+            <h2><% Response.Write(GetHabits()[index].Name); %></h2>
+            <img  width="100" height="100" src="<% Response.Write(GetHabits()[index].Image); %>" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail">
             <p>
-                <% Response.Write(habits[index].Description); %><span class="badge"><% Response.Write(habits[index].getHabitTimeStr()); %></span>
+                <% Response.Write(GetHabits()[index].Description); %><span class="badge"><% Response.Write(GetHabits()[index].getHabitTimeStr()); %></span>
             </p>
             <p>
-                <a class="btn btn-default" href="HabitShow.aspx?Id=<% Response.Write(habits[index].Id); %>">Show</a>
-                <a class="btn btn-default" href="HabitEdit.aspx?Id=<% Response.Write(habits[index].Id); %>">Edit</a>
-                <a class="btn btn-default" href="Default.aspx?Id=<% Response.Write(habits[index].Id); %>">DONE</a>
+                <a class="btn btn-default" href="HabitShow.aspx?Id=<% Response.Write(GetHabits()[index].Id); %>">Show</a>
+                <a class="btn btn-default" href="HabitEdit.aspx?Id=<% Response.Write(GetHabits()[index].Id); %>">Edit</a>
+                <a class="btn btn-default" href="Default.aspx?Id=<% Response.Write(GetHabits()[index].Id); %>">DONE</a>
             </p>
         </div>
       <%

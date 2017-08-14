@@ -8,7 +8,7 @@
 	  <div class="column">
 		  <div class="title">
 			  <h1> <% Response.Write(Habits[index].DoneDate); %> </h1>
-			  <h2> <% Response.Write(Habits[index].Name); %> </h2>
+			  <h2 style="position: relative; top: 16px;"> <% Response.Write(Habits[index].Name); %> </h2>
 		  </div>
 		  <div class="description">
 			  <p> <% Response.Write(Habits[index].Description); %> </p>
