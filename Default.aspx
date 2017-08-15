@@ -13,9 +13,12 @@
           <div class="col-md-6">
             <ul class="list-group">
               <% for (var index = 0; index < DoneHabits.Count; index++)
-                { 
+                {
               %>
-              <li class="list-group-item"><% Response.Write(DoneHabits[index].Name); %> <span class="badge">At <% Response.Write(DoneHabits[index].DoneDate); %></span></li>
+              <li class="list-group-item">
+                <a class="btn btn-success" style="min-width: 200px;" href="HabitShow.aspx?Id=<% Response.Write(DoneHabits[index].Id); %>"><% Response.Write(DoneHabits[index].Name); %></a>
+                <span class="badge" style="position: relative; top: 17px;">At <% Response.Write(DoneHabits[index].DoneDate); %></span>
+              </li>
               <% }%>
             </ul>
           </div>
