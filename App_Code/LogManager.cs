@@ -47,7 +47,7 @@ public class LogManager
         habitLog.OldValue = habit.Name;
         break;
       case HabitField.DoneDate:
-        habitLog.OldValue = habit.DoneDate.ToString();
+        habitLog.OldValue = habit.DoneDate?.ToString();
         break;
       case HabitField.NewRecord:
         break;

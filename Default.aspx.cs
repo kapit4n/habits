@@ -28,7 +28,7 @@ public partial class _Default : Page
     if (!string.IsNullOrEmpty(id))
     {
       var habit = _context.Habits.First(p => p.Id.ToString() == id);
-      LogManager.LogBeforeSave(habit, LogManager.TypeUpdate.DoneUpdate, LogManager.HabitField.DoneDate, habit.DoneDate, _context);
+      LogManager.LogBeforeSave(habit, LogManager.TypeUpdate.DoneUpdate, LogManager.HabitField.DoneDate, (habit.DoneDate == null ? DateTime.MinValue: habit.DoneDate), _context);
       habit.Done = true;
       habit.DoneDate = DateTime.Now;
       _context.SaveChanges();
