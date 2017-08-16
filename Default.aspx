@@ -17,7 +17,7 @@
               %>
               <li class="list-group-item">
                 <a class="btn btn-success" style="min-width: 200px;" href="HabitShow.aspx?Id=<% Response.Write(DoneHabits[index].Id); %>"><% Response.Write(DoneHabits[index].Name); %></a>
-                <span class="badge" style="position: relative; top: 17px;">At <% Response.Write(DoneHabits[index].DoneDate); %></span>
+                <span class="badge" style="position: relative; top: 17px;">Done At <% Response.Write(DoneHabits[index].getDoneDateStr()); %></span>
               </li>
               <% }%>
             </ul>

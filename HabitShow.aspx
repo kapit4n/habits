@@ -8,11 +8,12 @@
     <dd><% Response.Write(Habit1.Description); %></dd>
   </dl>
   <asp:Button id="editHabit" CssClass="btn btn-default" runat="server" Text="Edit" OnClick="EditHabit_Click"/>
+  <a class="btn btn-default" href="HabitList.aspx?Id=<% Response.Write(Habit1.Id); %>&action=undo">UNDO</a>
   <div class="doted-border">
     <% for (var index = 0; index < _habitLogs.Count; index++)
        {
     %>
-      <div class="direct-chat-text"> <span class="badge"> Change: <% Response.Write(_habitLogs[index].ChangeDescription); %> </span> <span class="badge">Modified At <% Response.Write(_habitLogs[index].DoneDate); %></span></div>
+      <div class="direct-chat-text"> <span class="badge"><% Response.Write(_habitLogs[index].ChangeDescription); %> </span> <span class="badge"><% Response.Write(_habitLogs[index].getDoneDateStr()); %></span></div>
     <% }%>
     
   </div>

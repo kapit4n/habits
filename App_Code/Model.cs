@@ -20,11 +20,17 @@ public partial class Habit
     public Nullable<System.DateTime> DoneDate { get; set; }
     public Nullable<int> HabitTime { get; set; }
 
-  public string getHabitTimeStr()
-  {
-    if (HabitTime == null) return "00:00";
-    return (((int)(HabitTime / 60)).ToString("00")) + ":" + (((int)(HabitTime % 60)).ToString("00"));
-  }
+    public string getHabitTimeStr()
+    {
+      if (HabitTime == null) return "00:00";
+      return (((int)(HabitTime / 60)).ToString("00")) + ":" + (((int)(HabitTime % 60)).ToString("00"));
+    }
+
+    public string getDoneDateStr()
+    {
+      if (DoneDate == null) return "";
+      return DoneDate.Value.ToString("MMMM dd, yyyy");
+    }
 }
 
 public partial class HabitLog
@@ -35,4 +41,10 @@ public partial class HabitLog
     public string ChangeDescription { get; set; }
     public string OldValue { get; set; }
     public string NewValue { get; set; }
+
+    public string getDoneDateStr()
+    {
+      if (DoneDate == null) return "";
+      return DoneDate.Value.ToString("MMMM dd, yyyy");
+    }
 }
