@@ -33,11 +33,11 @@ public class LogManager
 
   }
 
-  public static void LogBeforeSave(Habit habit, TypeUpdate typeUpdate, HabitField field, object newValue, MSSQLLocalDBEntities context)
+  public static void LogBeforeSave(Habit habit, TypeUpdate typeUpdate, HabitField field, object newValue, string logDescription, MSSQLLocalDBEntities context)
   {
     var habitLog = new HabitLog
     {
-      ChangeDescription = "Habit " + typeUpdate.Value,
+      ChangeDescription = logDescription,
       DoneDate = DateTime.Now,
       HabitId = habit.Id
     };

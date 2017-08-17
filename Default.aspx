@@ -39,7 +39,7 @@
             <p>
                 <a class="btn btn-default" href="HabitShow.aspx?Id=<% Response.Write(GetHabits()[index].Id); %>">Show</a>
                 <a class="btn btn-default" href="HabitEdit.aspx?Id=<% Response.Write(GetHabits()[index].Id); %>">Edit</a>
-                <a class="btn btn-default" href="Default.aspx?Id=<% Response.Write(GetHabits()[index].Id); %>">DONE</a>
+                <a class="btn btn-default" href="SetDescription.aspx?Id=<% Response.Write(GetHabits()[index].Id); %>">DONE</a>
             </p>
         </div>
       <%
