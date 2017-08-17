@@ -19,7 +19,7 @@ public partial class HabitShow : System.Web.UI.Page
       Response.Redirect("Default.aspx");
     }
     Habit1 = _context.Habits.First(p => p.Id.ToString() == id);
-    _habitLogs = _context.HabitLogs.Where(p => p.HabitId == Habit1.Id).ToList<HabitLog>();
+    _habitLogs = _context.HabitLogs.Where(p => p.HabitId == Habit1.Id).OrderByDescending(h => h.DoneDate).ToList<HabitLog>();
   }
 
   protected void EditHabit_Click(object sender, EventArgs e)
