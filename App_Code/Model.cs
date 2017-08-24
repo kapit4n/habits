@@ -26,6 +26,12 @@ public partial class Habit
       return (((int)(HabitTime / 60)).ToString("00")) + ":" + (((int)(HabitTime % 60)).ToString("00"));
     }
 
+    public string getShortDescription()
+    {
+        if (Description.Length < 150) return Description;
+        return Description.Substring(0, 150) + " ...";
+    }
+
     public string getDoneDateStr()
     {
       if (DoneDate == null) return "";
