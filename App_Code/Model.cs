@@ -28,8 +28,8 @@ public partial class Habit
 
     public string getShortDescription()
     {
-        if (Description.Length < 150) return Description;
-        return Description.Substring(0, 150) + " ...";
+        if (Description.Length < 250) return Description;
+        return Description.Substring(0, 250) + " ...";
     }
 
     public string getDoneDateStr()

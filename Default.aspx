@@ -30,7 +30,7 @@
       <% for (int index = 0; index < GetHabits().Count; index++) {
                                          var id = GetHabits()[index].Id.ToString();
             %>
-        <div class="col-md-4">
+        <div class="col-md-4" style="min-height: 300px;">
             <h2><% Response.Write(GetHabits()[index].Name); %></h2>
             <img  width="100" height="100" src="<% Response.Write(GetHabits()[index].Image); %>" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail">
             <p>
