@@ -16,7 +16,7 @@
   </div>
   <div class="form-group">
     <label for="description">Description:</label>
-    <asp:TextBox Rows="5" runat="server" CssClass="form-control" ID="description" placeholder="Habit description"  Text=""></asp:TextBox>
+    <asp:TextBox TextMode="multiline" Columns="50" Rows="5" runat="server" CssClass="form-control" ID="description" placeholder="Habit description"  Text=""></asp:TextBox>
   </div>
   <asp:Button id="saveHabit" CssClass="btn btn-default" runat="server" Text="Save" OnClick="saveHabit_Click" />
   <asp:Button id="cancelHabit" CssClass="btn btn-default" runat="server" Text="Cancel" OnClick="cancelHabit_Click" />
