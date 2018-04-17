@@ -8,7 +8,7 @@
     </div>
     <div class="form-group">
         <label for="logDescription">Change description:</label>
-        <asp:TextBox runat="server" CssClass="form-control" ID="logDescription" placeholder="Updated" Text=""></asp:TextBox>
+        <asp:TextBox runat="server" CssClass="form-control" ID="logDescription" placeholder="Updated" Text="" TextMode="multiline" Columns="150" Rows="3"></asp:TextBox>
     </div>
     <asp:Button id="saveHabit" CssClass="btn btn-default" runat="server" Text="Save" OnClick="SaveDescription_Click"/>
     <asp:Button id="cancelHabit" CssClass="btn btn-default" runat="server" Text="Cancel" OnClick="CancelDescription_Click"/>
