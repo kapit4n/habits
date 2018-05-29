@@ -20,7 +20,6 @@ public partial class SetDescription : System.Web.UI.Page
             Response.Redirect("Default.aspx");
         }
         Habit1 = _context.Habits.First(p => p.Id.ToString() == _id);
-        habitName.Text = Habit1.Name;
     }
 
     protected void SaveDescription_Click(object sender, EventArgs e)

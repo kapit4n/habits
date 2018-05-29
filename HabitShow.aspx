@@ -16,7 +16,10 @@
            {
         %>
             <div class="direct-chat-text">
-                <span class="badge"><% Response.Write(_habitLogs[index].ChangeDescription); %> </span> <span class="badge"><% Response.Write(_habitLogs[index].getDoneDateStr()); %></span>
+              <p style="white-space: pre-line">
+                <% Response.Write(_habitLogs[index].ChangeDescription); %> <span class="badge"><% Response.Write(_habitLogs[index].getDoneDateStr()); %></span>
+              </p>
+                
             </div>
         <% } %>
 

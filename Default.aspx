@@ -17,7 +17,7 @@
                {
             %>
               <li class="list-group-item">
-                <a class="btn btn-success" style="min-width: 200px;" href="HabitShow.aspx?Id=<% Response.Write(DoneHabits[index].Id); %>"><% Response.Write(DoneHabits[index].Name); %></a>
+                <a class="btn btn-success" style="min-width: 200px; text-transform: uppercase;" href="HabitShow.aspx?Id=<% Response.Write(DoneHabits[index].Id); %>"><% Response.Write(DoneHabits[index].Name); %></a>
                 <span class="badge" style="position: relative; top: 17px;">Done At <% Response.Write(DoneHabits[index].getDoneDateStr()); %></span>
               </li>
             <% } %>
@@ -33,7 +33,7 @@
          var id = GetHabits()[index].Id.ToString();
     %>
       <div class="col-md-3" style="min-height: 300px;">
-        <h2><% Response.Write(GetHabits()[index].Name); %></h2>
+        <h3 style="text-transform: uppercase;"><% Response.Write(GetHabits()[index].Name); %></h3>
         <div style="display: block; ">
           <a class="btn btn-default btn-sm" href="HabitShow.aspx?Id=<% Response.Write(GetHabits()[index].Id); %>">Show</a>
           <a class="btn btn-default btn-sm" href="HabitEdit.aspx?Id=<% Response.Write(GetHabits()[index].Id); %>">Edit</a>
