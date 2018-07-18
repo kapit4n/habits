@@ -41,7 +41,8 @@ CREATE TABLE [dbo].[Habits] (
     [Description] varchar(max)  NULL,
     [Done] bit  NOT NULL,
     [DoneDate] datetime  NULL,
-    [HabitTime] int  NULL
+    [HabitTime] int  NULL,
+	[HabitLogCount] [int] DEFAULT(0)
 );
 GO
 

@@ -28,6 +28,7 @@ public partial class SetDescription : System.Web.UI.Page
             (Habit1.DoneDate == null ? DateTime.MinValue : Habit1.DoneDate), logDescription.Text, _context);
         Habit1.Done = true;
         Habit1.DoneDate = DateTime.Now;
+        Habit1.HabitLogCount = Habit1.HabitLogCount + 1;
         _context.SaveChanges();
         Response.Redirect("Default.aspx");
     }

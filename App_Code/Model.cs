@@ -19,6 +19,7 @@ public partial class Habit
     public bool Done { get; set; }
     public Nullable<System.DateTime> DoneDate { get; set; }
     public Nullable<int> HabitTime { get; set; }
+    public Nullable<int> HabitLogCount { get; set; }
 
     public string getHabitTimeStr()
     {

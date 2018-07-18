@@ -27,6 +27,7 @@
           <Property Name="Done" Type="bit" Nullable="false" />
           <Property Name="DoneDate" Type="datetime" />
           <Property Name="HabitTime" Type="int" />
+          <Property Name="HabitLogCount" Type="int" />
         </EntityType>
         <EntityContainer Name="HabitsModelStoreContainer">
           <EntitySet Name="HabitLog" EntityType="Self.HabitLog" Schema="dbo" store:Type="Tables" />
@@ -51,6 +52,7 @@
           <Property Name="Done" Type="Boolean" Nullable="false" />
           <Property Name="DoneDate" Type="DateTime" Precision="3" />
           <Property Name="HabitTime" Type="Int32" />
+          <Property Name="HabitLogCount" Type="Int32" />
         </EntityType>
         <EntityType Name="HabitLog">
           <Key>
@@ -72,6 +74,7 @@
           <EntitySetMapping Name="Habits">
             <EntityTypeMapping TypeName="HabitsModel.Habit">
               <MappingFragment StoreEntitySet="Habits">
+                <ScalarProperty Name="HabitLogCount" ColumnName="HabitLogCount" />
                 <ScalarProperty Name="HabitTime" ColumnName="HabitTime" />
                 <ScalarProperty Name="DoneDate" ColumnName="DoneDate" />
                 <ScalarProperty Name="Done" ColumnName="Done" />
