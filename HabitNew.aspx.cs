@@ -21,7 +21,8 @@ public partial class HabitNew : System.Web.UI.Page
             Name = habitName.Text,
             Image = habitImage.Text,
             Description = description.Text,
-            HabitTime = (int.Parse(habitTime.Text.Split(':')[0])) * 60 + (int.Parse(habitTime.Text.Split(':')[1]))
+            HabitTime = (int.Parse(habitTime.Text.Split(':')[0])) * 60 + (int.Parse(habitTime.Text.Split(':')[1])),
+            HabitLogCount = 0
         };
         _context1.Habits.Add(newHabit);
         _context1.SaveChanges();

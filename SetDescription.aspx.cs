@@ -10,6 +10,7 @@ public partial class SetDescription : System.Web.UI.Page
     protected MSSQLLocalDBEntities _context;
     protected Habit Habit1 { get; set; } = new Habit();
     private string _id;
+    protected List<HabitLog> _habitLogs;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -20,6 +21,8 @@ public partial class SetDescription : System.Web.UI.Page
             Response.Redirect("Default.aspx");
         }
         Habit1 = _context.Habits.First(p => p.Id.ToString() == _id);
+        _habitLogs = _context.HabitLogs.Where(p => p.HabitId == Habit1.Id).OrderByDescending(h => h.DoneDate)
+            .ToList<HabitLog>();
     }
 
     protected void SaveDescription_Click(object sender, EventArgs e)

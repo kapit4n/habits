@@ -8,4 +8,21 @@
     </div>
     <asp:Button id="saveHabit" CssClass="btn btn-default" runat="server" Text="Save" OnClick="SaveDescription_Click"/>
     <asp:Button id="cancelHabit" CssClass="btn btn-default" runat="server" Text="Cancel" OnClick="CancelDescription_Click"/>
+
+<div class="doted-border">
+    <% for (var index = 0; index < _habitLogs.Count; index++)
+           {
+        %>
+        <div class="direct-chat-text">
+            <p style="white-space: pre-line">
+                <% Response.Write(_habitLogs[index].ChangeDescription); %>
+                    <span class="badge">
+                        <% Response.Write(_habitLogs[index].getDoneDateStr()); %>
+                    </span>
+            </p>
+
+        </div>
+        <% } %>
+
+</div>
 </asp:Content>

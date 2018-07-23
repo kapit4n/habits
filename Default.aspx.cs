@@ -27,7 +27,7 @@ public partial class _Default : Page
         if (IsPostBack) return;
 
         var nowx = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
-        SetHabits(_context.Habits.ToList<Habit>().Where(p => p.DoneDate < nowx || !p.Done).OrderBy(h => h.HabitTime)
+        SetHabits(_context.Habits.ToList<Habit>().Where(p => p.DoneDate < nowx || !p.Done).OrderByDescending(h => h.HabitLogCount)
             .ToList());
         DoneHabits = _context.Habits.ToList<Habit>().Where(p => p.DoneDate > nowx && p.Done)
             .OrderByDescending(h => h.DoneDate).ToList();
