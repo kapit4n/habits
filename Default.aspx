@@ -4,20 +4,20 @@
 
   <div class="jumbotron" style="padding: 0;">
     <div class="container" style="padding: 0;">
-      <div class="row">
+      <div class="row" style="background-image: url(https://i.ytimg.com/vi/7FcbRrE5-aM/maxresdefault.jpg)">
         <div class="col-md-6">
           <h1>HABITS </h1><asp:LinkButton ID="btnRandom" runat="server" CssClass="btn btn-primary" OnClick="btnRandom_Click">
             <span aria-hidden="true" class="glyphicon glyphicon-plus"></span>
           </asp:LinkButton>
-          <p class="lead">Register all the _habits that you usually do or you wanna develop them.</p>
+          <p class="lead">Register all the Habits that you usually do or you wanna develop them.</p>
         </div>
         <div class="col-md-6">
-          <ul class="list-group">
+          <ul class="list-group" style="background-color:rgba(0, 0, 0, 0.5);">
             <% for (var index = 0; index < DoneHabits.Count; index++)
                {
             %>
-              <li class="list-group-item">
-                <a class="btn btn-success" style="min-width: 200px; text-transform: uppercase;" href="HabitShow.aspx?Id=<% Response.Write(DoneHabits[index].Id); %>"><% Response.Write(DoneHabits[index].Name); %><span class="badge"><% Response.Write(DoneHabits[index].HabitLogCount); %></span></a>
+              <li class="list-group-item" style="background: transparent;">
+                <a class="btn btn-success" style="min-width: 250px; text-transform: uppercase;" href="HabitShow.aspx?Id=<% Response.Write(DoneHabits[index].Id); %>"><% Response.Write(DoneHabits[index].Name); %><span class="badge"><% Response.Write(DoneHabits[index].HabitLogCount); %></span></a>
                 <span class="badge" style="position: relative; top: 17px;">Done At <% Response.Write(DoneHabits[index].getDoneDateStr()); %></span>
               </li>
             <% } %>

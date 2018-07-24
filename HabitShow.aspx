@@ -5,7 +5,7 @@
     <dl class="dl-vertical">
         <dd><% Response.Write(Habit1.getHabitTimeStr()); %></dd>
         <dd>
-            <img src="<% Response.Write(Habit1.Image); %>" width="200"/>
+            <img src="<% Response.Write(Habit1.Image); %>" width="300"/>
         </dd>
         <dd><% Response.Write(Habit1.Description); %></dd>
     </dl>
