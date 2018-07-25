@@ -4,7 +4,7 @@
 
   <div class="jumbotron" style="padding: 0;">
     <div class="container" style="padding: 0;">
-      <div class="row" style="background-image: url(https://i.ytimg.com/vi/7FcbRrE5-aM/maxresdefault.jpg)">
+      <div class="row" style="background-image: url(https://mymodernmet.com/wp/wp-content/uploads/2018/07/2018-dog-photographer-of-the-year-dog-photos-the-kennel-club-2.jpg)">
         <div class="col-md-6">
           <h1>HABITS </h1><asp:LinkButton ID="btnRandom" runat="server" CssClass="btn btn-primary" OnClick="btnRandom_Click">
             <span aria-hidden="true" class="glyphicon glyphicon-plus"></span>
