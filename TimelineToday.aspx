@@ -14,7 +14,7 @@
           <h2 style="position: relative; top: 16px;"> <% Response.Write(HabitsAndLogs[index].Name); %> </h2>
         </div>
         <div class="description">
-          <p style="padding-top: 10px;"><img style="display: inline-block; float: left; padding-right: 10px;" src="<% Response.Write(HabitsAndLogs[index].ImgUrl); %>" width="100"/> <% Response.Write(HabitsAndLogs[index].HabitLogDescription); %> </p>
+          <p style="padding-top: 10px; white-space: pre-line;"><img style="display: inline-block; float: left; padding-right: 10px;" src="<% Response.Write(HabitsAndLogs[index].ImgUrl); %>" width="100"/> <% Response.Write(HabitsAndLogs[index].HabitLogDescription); %> </p>
         </div>
       </div>
     </div>
