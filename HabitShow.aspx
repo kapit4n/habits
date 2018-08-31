@@ -15,7 +15,8 @@
     </dl>
     <asp:Button id="editHabit" CssClass="btn btn-default" runat="server" Text="Edit" OnClick="EditHabit_Click"/>
     <a class="btn btn-default" href="HabitList.aspx?Id=<% Response.Write(Habit1.Id); %>&action=undo">UNDO</a>
-  <a class="btn btn-default btn-sm" href="SetDescription.aspx?Id=<% Response.Write(Habit1.Id); %>">DONE</a>
+    <a class="btn btn-default btn-sm" href="SetDescription.aspx?Id=<% Response.Write(Habit1.Id); %>">DONE</a>
+    <a class="btn btn-default btn-sm" href="HabitTimelineLog.aspx?Id=<% Response.Write(Habit1.Id); %>">TIMELINE</a>
     <div class="doted-border">
         <% for (var index = 0; index < _habitLogs.Count; index++)
            {
