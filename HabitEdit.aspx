@@ -3,6 +3,9 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
   <div class="container">
     <div class="row">
+        <a class="btn btn-default btn-sm" href="HabitShow.aspx?Id=<% Response.Write(Habit1.Id); %>">
+            &lt; <% Response.Write(Habit1.Name); %>
+        </a>
       <h2>Edit Habit</h2>
       <div class="form-group">
         <label for="habitName">Name:</label>

@@ -2,6 +2,9 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2>DONE (<% = Habit1.Name %>)</h2>
+    <a class="btn btn-default btn-sm" href="HabitShow.aspx?Id=<% Response.Write(Habit1.Id); %>">
+        &lt; <% Response.Write(Habit1.Name); %>
+    </a>
     <div class="form-group">
         <label for="logDescription">Change description:</label>
         <asp:TextBox runat="server" CssClass="form-control" id="logDescription" placeholder="Updated" Text="" TextMode="multiline" Columns="150" Rows="10"></asp:TextBox>
