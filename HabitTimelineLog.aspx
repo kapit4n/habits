@@ -11,7 +11,7 @@
       <div class="column">
         <div class="title">
           <h1> <% Response.Write(HabitsAndLogs[index].DoneDate); %> </h1>
-          <h2 style="position: relative; top: 16px;"> <% Response.Write(HabitsAndLogs[index].Name); %> </h2>
+          <h2 style="position: relative; top: 16px;"></h2>
         </div>
         <div class="description">
           <p style="padding-top: 10px; white-space: pre-line;">
