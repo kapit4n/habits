@@ -205,3 +205,21 @@ article {
     display: inline;
     z-index: -2;
 }
+
+@media screen and (min-width: 982px) {
+  .habit-card {
+    min-height: 300px;
+    height: 340px;
+    overflow-y: hidden;
+    border-style: groove;
+  }
+}
+
+@media screen and (max-width: 982px) {
+  .habit-card {
+    min-height: 200px;
+    height: 200px;
+    overflow-y: hidden;
+    border-style: groove;
+  }
+}
