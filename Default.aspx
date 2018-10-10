@@ -32,7 +32,7 @@
        {
          var id = GetHabits()[index].Id.ToString();
     %>
-      <div class="col-md-3" style="min-height: 300px; height: 340px; overflow: scroll;">
+      <div class="col-md-3 habit-card">
         <h3 style="text-transform: uppercase;"><% Response.Write(GetHabits()[index].Name); %> <span class="badge"><% Response.Write(GetHabits()[index].HabitLogCount); %></span></h3>
         <div style="display: block; ">
           <a class="btn btn-default btn-sm" href="HabitShow.aspx?Id=<% Response.Write(GetHabits()[index].Id); %>">Show</a>
